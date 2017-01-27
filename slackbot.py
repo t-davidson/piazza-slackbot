@@ -10,19 +10,19 @@ from slacker import Slacker
 from time import sleep
 
 #Accessing Piazza and loading data
-piazza_id = "" #this is the suffix of the piazza url
-piazza_email = "" #your email
-piazza_password = "" #your piazza piazza_password
+piazza_id = "" #TODO this is the suffix of the piazza url
+piazza_email = "" #TODO your email
+piazza_password = "" #TODO your piazza piazza_password
 p = Piazza()
 p.user_login(email=piazza_email, password=piazza_password)
 network = p.network(piazza_id)
 
 #Accessing Slack and configuring the bot
-slack_token = ""
+slack_token = "" #TODO Your slack bot token goes here
 bot=Slacker(slack_token) #authorizing bot
-channel='piazza' #Name of the channel to post to
-bot_name = '' #Name of your slackbot
-message="New message on Piazza!"#Message to send
+channel='' #TODO Name of the channel to post to
+bot_name = '' #TODO Name of your slackbot
+message="New message on Piazza!"#TODO Message to send
 
 def check_for_new_posts(NUM_POSTS):
     """
