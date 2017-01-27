@@ -18,7 +18,7 @@ Then follow this [link](https://my.slack.com/services/new/bot) to create a bot. 
 
 As you probably don't want your bot notifying the entire #general channel each time it posts it is useful to set up a new channel for the bot. Once you have created the channel you can then add the bot by clicking `Channel Settings` > `Invite team members to join...` > and then select your bot from the list.
 
-You will need to add your credentials for both Piazza and Slack into the relevant places in the file `slackbot.py`. These are empty strings marked with `TODO`, along with some basic instructions.
+You will need to add your credentials for both Piazza and Slack into the relevant places in the file `slackbot.py`. All the areas where you need to input information are marked with `TODO`. Simply add the relevant information to the strings.
 
 ## Usage
 I suggest using `screen` to run the bot on a machine where it can run constantly without any interruptions. Simply open a new screen window, run the bot, and then detach from the window.
