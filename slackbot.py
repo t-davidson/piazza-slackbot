@@ -18,10 +18,10 @@ p.user_login(email=piazza_email, password=piazza_password)
 network = p.network(piazza_id)
 
 #Accessing Slack and configuring the bot
-slack_token = "" #TODO Your slack bot token goes here
+slack_token = "" #TODO Your slack API token goes here
 bot=Slacker(slack_token) #authorizing bot
-channel='' #TODO Name of the channel to post to
-bot_name = '' #TODO Name of your slackbot
+channel="" #TODO Name of the channel to post to
+bot_name = "" #TODO Name of your slackbot
 message="New message on Piazza!"#TODO Message to send
 
 def check_for_new_posts(NUM_POSTS):
