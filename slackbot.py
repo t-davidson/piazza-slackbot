@@ -33,7 +33,7 @@ def check_for_new_posts(NUM_POSTS):
     Slack.
     """
     while True:
-        feed = network.search_feed('')
+        feed = network.get_feed()
         if len(feed) > NUM_POSTS:
             bot.chat.post_message(channel,message, \
             as_user=bot_name,parse='full')
@@ -44,5 +44,5 @@ def check_for_new_posts(NUM_POSTS):
         sleep(60)
 
 if __name__ == '__main__':
-     NUM_POSTS = len(network.search_feed(''))
+     NUM_POSTS = len(network.get_feed())
      check_for_new_posts(NUM_POSTS)
