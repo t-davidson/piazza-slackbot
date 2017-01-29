@@ -1,5 +1,8 @@
 # piazza-slackbot
-A super simple bot to send Slack notifications when new posts are added to a Piazza page.
+A simple bot that sends Slack notifications when new posts are added to a Piazza page.
+
+## Why?
+To get notifications without having to check the Piazza website or have email notifications clog up your inbox.
 
 # Instructions
 
