@@ -22,9 +22,11 @@ slack_token = "" #TODO Your slack API token goes here
 bot=Slacker(slack_token) #authorizing bot
 channel="" #TODO Name of the channel to post to
 bot_name = "" #TODO Name of your slackbot
-message="New post on Piazza!"#TODO Message to send
 
-def check_for_new_posts(NUM_POSTS):
+#URL for posts on the page
+POST_BASE_URL = "https://piazza.com/class/"+piazza_id+"?cid="
+
+def check_for_new_posts(NUM_POSTS,include_link=True):
     """
     This function will run continuously,
     checking every 1 minute to see if the number of posts
@@ -35,6 +37,10 @@ def check_for_new_posts(NUM_POSTS):
     while True:
         UPDATED_NUM_POSTS = len(network.get_feed()['feed'])
         if UPDATED_NUM_POSTS > NUM_POSTS:
+            if include_link is True:
+                message = "New post on Piazza! "+POST_BASE_URL+str(NEW_NUM_POSTS+1)
+            else:
+                message="New post on Piazza!"
             bot.chat.post_message(channel,message, \
             as_user=bot_name,parse='full')
             NUM_POSTS = UPDATED_NUM_POSTS
