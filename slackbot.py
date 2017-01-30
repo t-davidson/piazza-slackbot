@@ -22,7 +22,7 @@ slack_token = "" #TODO Your slack API token goes here
 bot=Slacker(slack_token) #authorizing bot
 channel="" #TODO Name of the channel to post to
 bot_name = "" #TODO Name of your slackbot
-message="New message on Piazza!"#TODO Message to send
+message="New post on Piazza!"#TODO Message to send
 
 def check_for_new_posts(NUM_POSTS):
     """
