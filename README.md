@@ -23,6 +23,8 @@ Consider setting up a new channel for the bot so that it doesn't overrun the #ge
 
 You will need to add your credentials for both Piazza and Slack into the relevant places in the file `slackbot.py`. All the areas where you need to input information are marked with `TODO`. Simply add the relevant information to the empty strings.
 
+An optional parameter `include_link` can be passed to the main function to include or exclude a URL to the post when the message is sent. This is set to true by default but can be changed if you do not want to include links.
+
 ## Usage
 I suggest using `screen` to run the bot on a machine where it can operate constantly without any interruptions. Simply open a new screen window, run the bot by typing `python3 slackbot.py`, and then detach from the window.
 
