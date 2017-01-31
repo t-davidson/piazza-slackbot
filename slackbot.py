@@ -27,32 +27,25 @@ bot_name = "" #TODO Name of your slackbot
 POST_BASE_URL = "https://piazza.com/class/"+piazza_id+"?cid="
 
 def get_max_id(feed):
-	for post in feed:
-		if "pin" not in post:
-			return post["nr"]
-	return -1
+    for post in feed:
+        if "pin" not in post:
+            return post["nr"]
+    return -1
 
-def check_for_new_posts(LAST_ID,include_link=True):
-    """
-    This function will run continuously,
-    checking every 1 minute to see if the number of posts
-    in the Piazza feed is equal to the previous number.
-    If a new post is added then a message will be sent to
-    Slack.
-    """
+def check_for_new_posts(LAST_ID,network=network,include_link=True):
     while True:
-		UPDATED_LAST_ID = get_max_id(network.get_feed()['feed'])
+        UPDATED_LAST_ID = get_max_id(network.get_feed()['feed'])
         if UPDATED_LAST_ID > LAST_ID:
             attachment = None
             message = None
             if include_link is True:
                 attachment = [
                     {
-			"fallback": "New post on Piazza!",
+                        "fallback": "New post on Piazza!",
                         "title": "New post on Piazza!",
                         "title_link": POST_BASE_URL+str(UPDATED_LAST_ID),
                         "text": "Follow the link to view this post",
-			            "color": "good"
+                        "color": "good"
                     }
                 ]
             else:
@@ -66,5 +59,5 @@ def check_for_new_posts(LAST_ID,include_link=True):
         sleep(60)
 
 if __name__ == '__main__':
-	LAST_ID = get_max_id(network.get_feed()['feed'])
-	check_for_new_posts(LAST_ID)
+    LAST_ID = get_max_id(network.get_feed()['feed'])
+    check_for_new_posts(LAST_ID)
