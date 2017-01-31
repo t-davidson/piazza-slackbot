@@ -48,6 +48,7 @@ def check_for_new_posts(LAST_ID,include_link=True):
             if include_link is True:
                 attachment = [
                     {
+			"fallback": "New post on Piazza!",
                         "title": "New post on Piazza!",
                         "title_link": POST_BASE_URL+str(UPDATED_LAST_ID),
                         "text": "Follow the link to view this post",
