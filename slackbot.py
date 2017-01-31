@@ -37,12 +37,21 @@ def check_for_new_posts(NUM_POSTS,include_link=True):
     while True:
         UPDATED_NUM_POSTS = len(network.get_feed()['feed'])
         if UPDATED_NUM_POSTS > NUM_POSTS:
+            attachment = None
+            message = None
             if include_link is True:
-                message = "New post on Piazza! "+POST_BASE_URL+str(NEW_NUM_POSTS+1)
+                attachment = [
+                    {
+                        "title": "New post on Piazza!",
+                        "title_link": POST_BASE_URL+str(NEW_NUM_POSTS+1),
+                        "text": "Follow the link to view this post",
+			            "color": "good"
+                    }
+                ]
             else:
                 message="New post on Piazza!"
             bot.chat.post_message(channel,message, \
-            as_user=bot_name,parse='full')
+            as_user=bot_name,parse='full',attachments=attachment)
             NUM_POSTS = UPDATED_NUM_POSTS
         else:
             pass
