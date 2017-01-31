@@ -26,6 +26,12 @@ bot_name = "" #TODO Name of your slackbot
 #URL for posts on the page
 POST_BASE_URL = "https://piazza.com/class/"+piazza_id+"?cid="
 
+def get_max_id(feed):
+	for post in feed:
+		if "pin" not in post:
+			return post["nr"]
+	return -1
+
 def check_for_new_posts(LAST_ID,include_link=True):
     """
     This function will run continuously,
@@ -35,7 +41,7 @@ def check_for_new_posts(LAST_ID,include_link=True):
     Slack.
     """
     while True:
-		UPDATED_LAST_ID = network.get_feed()['feed'][-1]["cid"]
+		UPDATED_LAST_ID = get_max_id(network.get_feed()['feed'])
         if UPDATED_LAST_ID > LAST_ID:
             attachment = None
             message = None
@@ -59,5 +65,5 @@ def check_for_new_posts(LAST_ID,include_link=True):
         sleep(60)
 
 if __name__ == '__main__':
-	LAST_ID = network.get_feed()['feed'][-1]["cid"]
+	LAST_ID = get_max_id(network.get_feed()['feed'])
 	check_for_new_posts(LAST_ID)
