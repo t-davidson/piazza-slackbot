@@ -29,3 +29,7 @@ An optional parameter `include_link` can be passed to the main function to inclu
 I suggest using `screen` to run the bot on a machine where it can operate constantly without any interruptions. Simply open a new screen window, run the bot by typing `python3 slackbot.py`, and then detach from the window.
 
 The bot is set up to constantly print out statements in the window to show that it is running, although you can comment this out if you wish.
+
+The bot will then send a notification to the relevant Slack channel whenever a new post is added to Piazza, including a hyperlink to the relevant post.
+
+*Note: The bot will also post links to private messages sent to the user who's Piazza credentials are being used. All users in the channel will be able to see the link but it will only work for the authorized user.*
