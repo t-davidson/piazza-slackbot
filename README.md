@@ -33,3 +33,7 @@ The bot is set up to constantly print out statements in the window to show that 
 The bot will then send a notification to the relevant Slack channel whenever a new post is added to Piazza, including a hyperlink to the relevant post.
 
 *Note: The bot will also post links to private messages sent to the user whose Piazza credentials are being used. All users in the channel will be able to see the link but it will only work for the authorized user.*
+
+# Contributions
+
+Please feel free to fork this project and make a pull request if you have an contributions you would like to make.
